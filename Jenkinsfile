@@ -20,11 +20,18 @@ pipeline
         }
         stage('Unit and Integration Tests')
         {
-            steps
-            {
-                echo "Unit Tests"
-                echo "Integration Tests"
+            steps {
+                echo 'Running unit and integration tests using JUnit and Selenium'
             }
+            post{
+                always{
+                    emailext (
+                        subject: 'Unit and Integration Tests Status',
+                        to: 'krishnprayag.kp@gmail.com',
+                        body: "${currentBuild.result}: Job ",
+                        attachLog: true
+                    )
+                }
         }
         stage('Code Analysis')
         {
