@@ -26,8 +26,7 @@ pipeline
             }
             post{
                     success{
-                        emailext compressLog: true,
-                        attachLog: true, 
+                        emailext 
                             body: "The Unit and Integrations Test are a Success!", 
                             
                             subject: 'Unit and Integration Tests status',
