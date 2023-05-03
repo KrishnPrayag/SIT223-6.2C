@@ -27,14 +27,17 @@ pipeline
             post{
                     success{
                         emailext(subject: 'Unit and Integration Tests status',
+                            body: "The Unit and Integrations Test are a Success!",
+                            attachLog: true,
                             to: 'krishnprayag.kp@gmail.com',
-                            body: "The Unit and Integrations Test are a Success!"
+                                 
                                  )
                         }
                     failure{
                         emailext(subject: 'Unit and Integration Tests status',
-                            to: 'krishnprayag.kp@gmail.com',
-                            body: "The Unit and Integrations Test are a Failure!"
+                                body: "The Unit and Integrations Test are a Failure!",
+                                 attachLog: true,
+                                 to: 'krishnprayag.kp@gmail.com',
                                  )
                         }
                 }
@@ -55,16 +58,17 @@ pipeline
             post{
                     success{
                         emailext( subject: 'Security Scans status',
-                            to: 'krishnprayag.kp@gmail.com',
-                            body: "The Security scans are a Success!",
-                            attachLog: true,
+                            
+                                body: "The Security scans are a Success!",
+                                attachLog: true,
+                                to: 'krishnprayag.kp@gmail.com',
                                  )
                         }
                     failure{
                         emailext (subject: 'Security Scans status',
-                            to: 'krishnprayag.kp@gmail.com',
                             body: "The Security scans are a Failure!",
                             attachLog: true,
+                            to: 'krishnprayag.kp@gmail.com',
                                   )
                         }
                 }
