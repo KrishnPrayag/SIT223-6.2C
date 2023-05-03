@@ -25,7 +25,9 @@ pipeline
             }
             post{
                     always{
-                        emailext (subject: 'Unit and Integration Tests Status', to: 'krishnprayag.kp@gmail.com', body: "${currentBuild.result}: Job ",
+                        mail to: 'krishnprayag.kp@gmail.com',
+                            subject: Unit and Integration Tests status
+                            body: "${currentBuild.result}: Job ",
                         attachLog: true)
                         }
                 }
