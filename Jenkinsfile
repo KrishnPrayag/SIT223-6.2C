@@ -26,10 +26,10 @@ pipeline
             }
             post{
                     success{
-                        emailext 
+                        emailext subject: 'Unit and Integration Tests status',
                             body: "The Unit and Integrations Test are a Success!",
                             
-                            subject: 'Unit and Integration Tests status',
+                            
                             to: 'krishnprayag.kp@gmail.com',
                         }
                     failure{
