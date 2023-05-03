@@ -26,16 +26,18 @@ pipeline
             }
             post{
                     success{
-                        emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Unit and Integration Tests status',
+                        emailext(subject: 'Unit and Integration Tests status',
+                            to: 'krishnprayag.kp@gmail.com',
                             body: "The Unit and Integrations Test are a Success!",
                             attachLog: true
+                                 )
                         }
                     failure{
-                        emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Unit and Integration Tests status',
+                        emailext(subject: 'Unit and Integration Tests status',
+                            to: 'krishnprayag.kp@gmail.com',
                             body: "The Unit and Integrations Test are a Failure!",
                             attachLog: true
+                                 )
                         }
                 }
         }
@@ -54,16 +56,18 @@ pipeline
             }
             post{
                     success{
-                        emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Security Scans status',
+                        emailext( subject: 'Security Scans status',
+                            to: 'krishnprayag.kp@gmail.com',
                             body: "The Security scans are a Success!",
                             attachLog: true
+                                 )
                         }
                     failure{
-                        emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Security Scans status',
+                        emailext (subject: 'Security Scans status',
+                            to: 'krishnprayag.kp@gmail.com',
                             body: "The Security scans are a Failure!",
                             attachLog: true
+                                  )
                         }
                 }
         }
@@ -82,16 +86,18 @@ pipeline
             }
             post{
                     success{
-                        emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Integration Tests on Staging status',
+                        emailext (subject: 'Integration Tests on Staging status',
+                            to: 'krishnprayag.kp@gmail.com',
                             body: "Integration Tests on Staging are a Success!",
                             attachLog: true
+                                  )
                         }
                     failure{
-                        emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Integration Tests on Staging status',
+                        emailext( subject: 'Integration Tests on Staging status',
+                            to: 'krishnprayag.kp@gmail.com',
                             body: "Integration Tests on Staging are a Failure!",
                             attachLog: true
+                                 )
                         }
                 }
         }
