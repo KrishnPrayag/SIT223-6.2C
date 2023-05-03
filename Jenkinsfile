@@ -65,10 +65,13 @@ pipeline
             {
                 sleep 10
             }
-            mail to: 'krishnprayag.kp@gmail.com',
+            post{
+                    always{
+                        mail to: 'krishnprayag.kp@gmail.com',
                             subject: "${currentBuild.displayName} status",
                             body: "${currentBuild.displayName} are a ${currentBuild.result} "
                         }
+                }
         }
         stage('Deploy to Production')
         {
