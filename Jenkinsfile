@@ -26,17 +26,16 @@ pipeline
             }
             post{
                     success{
-                        mail subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Success!",
+                        emailext attachLog: true, 
+                            body: "The Unit and Integrations Test are a Success!", 
+                            subject: 'Unit and Integration Tests status',
                             to: 'krishnprayag.kp@gmail.com'
                         }
                     failure{
-                        mail subject: 'Unit and Integration Tests status',
-                                body: "The Unit and Integrations Test are a Failure!",
-                                 attachLog: true,
-                                 
-                                 to: 'krishnprayag.kp@gmail.com'
-                                 
+                        emailext attachLog: true, 
+                            body: "The Unit and Integrations Test are a Failure!", 
+                            subject: 'Unit and Integration Tests status',
+                            to: 'krishnprayag.kp@gmail.com'
                         }
                 }
         }
