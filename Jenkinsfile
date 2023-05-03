@@ -16,7 +16,7 @@ pipeline
             {
                 echo "Fetch the source code from $DIRECTORY_PATH"
 
-                echo "Compile the code using $AUTOMATION_TOOL"
+                echo "Compile the code using $AUTOMATION_TOOL "
             }
         }
         stage('Unit and Integration Tests')
