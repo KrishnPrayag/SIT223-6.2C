@@ -28,15 +28,13 @@ pipeline
                     success{
                         emailext(subject: 'Unit and Integration Tests status',
                             to: 'krishnprayag.kp@gmail.com',
-                            body: "The Unit and Integrations Test are a Success!",
-                            attachLog: true,
+                            body: "The Unit and Integrations Test are a Success!"
                                  )
                         }
                     failure{
                         emailext(subject: 'Unit and Integration Tests status',
                             to: 'krishnprayag.kp@gmail.com',
-                            body: "The Unit and Integrations Test are a Failure!",
-                            attachLog: true,
+                            body: "The Unit and Integrations Test are a Failure!"
                                  )
                         }
                 }
