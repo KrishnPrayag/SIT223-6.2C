@@ -83,7 +83,7 @@ pipeline
             post{
                     success{
                         emailext to: 'krishnprayag.kp@gmail.com',
-                            subject: Integration Tests on Staging status',
+                            subject: 'Integration Tests on Staging status',
                             body: "Integration Tests on Staging are a Success!",
                             attachLog: true
                         }
