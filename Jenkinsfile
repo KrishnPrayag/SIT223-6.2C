@@ -31,10 +31,10 @@ pipeline
                             to: 'krishnprayag.kp@gmail.com'
                         }
                     failure{
-                        emailext 
+                        emailext subject: 'Unit and Integration Tests status',
                                 body: "The Unit and Integrations Test are a Failure!",
                                  attachLog: true,
-                                 subject: 'Unit and Integration Tests status',
+                                 
                                  to: 'krishnprayag.kp@gmail.com',
                                  
                         }
@@ -55,19 +55,18 @@ pipeline
             }
             post{
                     success{
-                        emailext( subject: 'Security Scans status',
-                            
+                        emailext subject: 'Security Scans status',
                                 body: "The Security scans are a Success!",
                                 attachLog: true,
                                 to: 'krishnprayag.kp@gmail.com',
-                                 )
+                                 
                         }
                     failure{
-                        emailext (subject: 'Security Scans status',
+                        emailext subject: 'Security Scans status',
                             body: "The Security scans are a Failure!",
                             attachLog: true,
                             to: 'krishnprayag.kp@gmail.com',
-                                  )
+                                  
                         }
                 }
         }
@@ -86,18 +85,16 @@ pipeline
             }
             post{
                     success{
-                        emailext (subject: 'Integration Tests on Staging status',
-                            to: 'krishnprayag.kp@gmail.com',
+                        emailext subject: 'Integration Tests on Staging status',
                             body: "Integration Tests on Staging are a Success!",
                             attachLog: true,
-                                  )
+                            to: 'krishnprayag.kp@gmail.com',
                         }
                     failure{
-                        emailext( subject: 'Integration Tests on Staging status',
-                            to: 'krishnprayag.kp@gmail.com',
+                        emailext subject: 'Integration Tests on Staging status',
                             body: "Integration Tests on Staging are a Failure!",
                             attachLog: true,
-                                 )
+                            to: 'krishnprayag.kp@gmail.com',
                         }
                 }
         }
