@@ -26,12 +26,12 @@ pipeline
             }
             post{
                     success{
-                        emailext subject: 'Unit and Integration Tests status',
+                        mail subject: 'Unit and Integration Tests status',
                             body: "The Unit and Integrations Test are a Success!",
                             to: 'krishnprayag.kp@gmail.com'
                         }
                     failure{
-                        emailext subject: 'Unit and Integration Tests status',
+                        mail subject: 'Unit and Integration Tests status',
                                 body: "The Unit and Integrations Test are a Failure!",
                                  attachLog: true,
                                  
@@ -55,14 +55,14 @@ pipeline
             }
             post{
                     success{
-                        emailext subject: 'Security Scans status',
+                        mail subject: 'Security Scans status',
                                 body: "The Security scans are a Success!",
                                 attachLog: true,
                                 to: 'krishnprayag.kp@gmail.com'
                                  
                         }
                     failure{
-                        emailext subject: 'Security Scans status',
+                        mail subject: 'Security Scans status',
                             body: "The Security scans are a Failure!",
                             attachLog: true,
                             to: 'krishnprayag.kp@gmail.com'
