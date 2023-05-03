@@ -26,7 +26,7 @@ pipeline
             post{
                     always{
                         mail to: 'krishnprayag.kp@gmail.com',
-                            subject: Unit and Integration Tests status
+                            subject: 'Unit and Integration Tests status',
                             body: "${currentBuild.result}: Job ",
                         attachLog: true)
                         }
