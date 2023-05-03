@@ -25,7 +25,7 @@ pipeline
             }
             post{
                     always{
-                        emailext (subject: 'Unit and Integration Tests Status' to: 'krishnprayag.kp@gmail.com')
+                        emailext (subject: 'Unit and Integration Tests Status', to: 'krishnprayag.kp@gmail.com')
                         }
                 }
         }
