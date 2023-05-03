@@ -27,7 +27,7 @@ pipeline
                     always{
                         mail to: 'krishnprayag.kp@gmail.com',
                             subject: 'Unit and Integration Tests status',
-                            body: "${currentBuild.result}: Job "
+                            body: "The Unit and Integrations Test are a ${currentBuild.result} "
                         }
                 }
         }
