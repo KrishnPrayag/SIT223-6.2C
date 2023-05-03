@@ -24,11 +24,9 @@ pipeline
                 echo 'Running unit and integration tests using JUnit and Selenium'
             }
             post{
-                always{
-                    emailext (
-                        subject: 'Unit and Integration Tests Status',
-                        to: 'krishnprayag.kp@gmail.com',
-                    )
+                    always{
+                        emailext (subject: 'Unit and Integration Tests Status' to: 'krishnprayag.kp@gmail.com')
+                        }
                 }
         }
         stage('Code Analysis')
