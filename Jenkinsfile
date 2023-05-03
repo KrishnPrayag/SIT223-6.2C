@@ -24,10 +24,15 @@ pipeline
                 echo 'Running unit and integration tests using JUnit and Selenium'
             }
             post{
-                    always{
+                    success{
                         mail to: 'krishnprayag.kp@gmail.com',
                             subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a ${currentBuild.result} "
+                            body: "The Unit and Integrations Test are a Success!"
+                        }
+                    failure{
+                        mail to: 'krishnprayag.kp@gmail.com',
+                            subject: 'Unit and Integration Tests status',
+                            body: "The Unit and Integrations Test are a Failure!"
                         }
                 }
         }
@@ -45,10 +50,15 @@ pipeline
                 echo "deploy the application to $TESTING_ENVIRONMENT"
             }
             post{
-                    always{
+                    success{
                         mail to: 'krishnprayag.kp@gmail.com',
-                            subject: "${currentBuild.displayName} status",
-                            body: "${currentBuild.displayName} are a ${currentBuild.result} "
+                            subject: 'Unit and Integration Tests status',
+                            body: "The Unit and Integrations Test are a Success!"
+                        }
+                    failure{
+                        mail to: 'krishnprayag.kp@gmail.com',
+                            subject: 'Unit and Integration Tests status',
+                            body: "The Unit and Integrations Test are a Failure!"
                         }
                 }
         }
@@ -66,10 +76,15 @@ pipeline
                 sleep 10
             }
             post{
-                    always{
+                    success{
                         mail to: 'krishnprayag.kp@gmail.com',
-                            subject: "${currentBuild.displayName} status",
-                            body: "${currentBuild.displayName} are a ${currentBuild.result} "
+                            subject: 'Unit and Integration Tests status',
+                            body: "The Unit and Integrations Test are a Success!"
+                        }
+                    failure{
+                        mail to: 'krishnprayag.kp@gmail.com',
+                            subject: 'Unit and Integration Tests status',
+                            body: "The Unit and Integrations Test are a Failure!"
                         }
                 }
         }
