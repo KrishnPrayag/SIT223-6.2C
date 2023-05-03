@@ -18,7 +18,7 @@ pipeline
                 echo "Compile the code and generate any necessary artefacts"
             }
         }
-        stage('Test')
+        stage('Unit and Integration Tests')
         {
             steps
             {
@@ -26,21 +26,25 @@ pipeline
                 echo "Integration Tests"
             }
         }
-        stage('Code Quality Check')
+        stage('Code Analysis')
         {
             steps
             {
                 echo "Check the quality of the code"
             }
         }
-        stage('Deploy')
+        stage('Security Scan')
         {
             steps
             {
                 echo "deploy the application to $TESTING_ENVIRONMENT"
             }
         }
-        stage('Approval')
+        stage('Deploy to Staging')
+        {
+            
+        }
+        stage('Integration Tests on Staging')
         {
             steps
             {
