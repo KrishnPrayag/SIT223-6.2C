@@ -29,14 +29,14 @@ pipeline
                         emailext(subject: 'Unit and Integration Tests status',
                             to: 'krishnprayag.kp@gmail.com',
                             body: "The Unit and Integrations Test are a Success!",
-                            attachLog: true
+                            attachLog: true,
                                  )
                         }
                     failure{
                         emailext(subject: 'Unit and Integration Tests status',
                             to: 'krishnprayag.kp@gmail.com',
                             body: "The Unit and Integrations Test are a Failure!",
-                            attachLog: true
+                            attachLog: true,
                                  )
                         }
                 }
@@ -59,14 +59,14 @@ pipeline
                         emailext( subject: 'Security Scans status',
                             to: 'krishnprayag.kp@gmail.com',
                             body: "The Security scans are a Success!",
-                            attachLog: true
+                            attachLog: true,
                                  )
                         }
                     failure{
                         emailext (subject: 'Security Scans status',
                             to: 'krishnprayag.kp@gmail.com',
                             body: "The Security scans are a Failure!",
-                            attachLog: true
+                            attachLog: true,
                                   )
                         }
                 }
@@ -89,14 +89,14 @@ pipeline
                         emailext (subject: 'Integration Tests on Staging status',
                             to: 'krishnprayag.kp@gmail.com',
                             body: "Integration Tests on Staging are a Success!",
-                            attachLog: true
+                            attachLog: true,
                                   )
                         }
                     failure{
                         emailext( subject: 'Integration Tests on Staging status',
                             to: 'krishnprayag.kp@gmail.com',
                             body: "Integration Tests on Staging are a Failure!",
-                            attachLog: true
+                            attachLog: true,
                                  )
                         }
                 }
