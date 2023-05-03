@@ -3,9 +3,10 @@ pipeline
     agent any
     environment
     {
-        DIRECTORY_PATH = "FILES/FILES/CODE"
+        DIRECTORY_PATH = "C:/Krishn/Docs"
+        AUTOMATION_TOOL = "Maven"
         TESTING_ENVIRONMENT = "TEST"
-        PRODUCTION_ENVIRONMENT = "Krishn"
+        PRODUCTION_ENVIRONMENT = "AWS EC2"
     }
     stages
     {
@@ -15,24 +16,26 @@ pipeline
             {
                 echo "Fetch the source code from $DIRECTORY_PATH"
 
-                echo "Compile the code and generate any necessary artefacts"
+                echo "Compile the code using $AUTOMATION_TOOL"
             }
         }
         stage('Unit and Integration Tests')
         {
             steps {
-                echo 'Running unit and integration tests using JUnit and Selenium'
+                echo 'Running unit and integration tests using Citrus'
             }
             post{
                     success{
                         mail to: 'krishnprayag.kp@gmail.com',
                             subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Success!"
+                            body: "The Unit and Integrations Test are a Success!",
+                            attachLog: true
                         }
                     failure{
                         mail to: 'krishnprayag.kp@gmail.com',
                             subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Failure!"
+                            body: "The Unit and Integrations Test are a Failure!",
+                            attachLog: true
                         }
                 }
         }
@@ -40,25 +43,27 @@ pipeline
         {
             steps
             {
-                echo "Check the quality of the code"
+                echo "Check the quality of the code using SonarQube"
             }
         }
         stage('Security Scan')
         {
             steps
             {
-                echo "deploy the application to $TESTING_ENVIRONMENT"
+                echo "Pass the code to Veracode for Security Scan"
             }
             post{
                     success{
                         mail to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Success!"
+                            subject: 'Security Scans status',
+                            body: "The Security scans are a Success!",
+                            attachLog: true
                         }
                     failure{
                         mail to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Failure!"
+                            subject: 'Security Scans status',
+                            body: "The Security scans are a Failure!",
+                            attachLog: true
                         }
                 }
         }
@@ -66,25 +71,27 @@ pipeline
         {
             steps
             {
-                sleep 1
+                echo 'Deploy the code to Google Compute Engine for staging'
             }
         }
         stage('Integration Tests on Staging')
         {
             steps
             {
-                sleep 10
+                echo 'Run integration tests using Cypress and TestNG'
             }
             post{
                     success{
-                        mail to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Success!"
+                        emailext to: 'krishnprayag.kp@gmail.com',
+                            subject: Integration Tests on Staging status',
+                            body: "Integration Tests on Staging are a Success!",
+                            attachLog: true
                         }
                     failure{
-                        mail to: 'krishnprayag.kp@gmail.com',
-                            subject: 'Unit and Integration Tests status',
-                            body: "The Unit and Integrations Test are a Failure!"
+                        emailext to: 'krishnprayag.kp@gmail.com',
+                            subject: 'Integration Tests on Staging status',
+                            body: "Integration Tests on Staging are a Failure!",
+                            attachLog: true
                         }
                 }
         }
