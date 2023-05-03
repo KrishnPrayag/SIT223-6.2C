@@ -28,8 +28,6 @@ pipeline
                     emailext (
                         subject: 'Unit and Integration Tests Status',
                         to: 'krishnprayag.kp@gmail.com',
-                        body: "${currentBuild.result}: Job ",
-                        attachLog: true
                     )
                 }
         }
@@ -49,7 +47,10 @@ pipeline
         }
         stage('Deploy to Staging')
         {
-            
+            steps
+            {
+                sleep 1
+            }
         }
         stage('Integration Tests on Staging')
         {
