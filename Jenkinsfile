@@ -29,7 +29,7 @@ pipeline
                         emailext attachLog: true,
                         subject: 'Unit and Integration Tests status',
                         body: 'The Unit and Integrations Test are a Success!',
-                        to: 'krishnprayag.kp@gmail.com'
+                        to: 's222328395@deakin.edu.au'
                         }
                     failure{
                         emailext attachLog: true, 
