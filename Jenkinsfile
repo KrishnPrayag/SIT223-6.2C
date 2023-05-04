@@ -29,7 +29,7 @@ pipeline
                         emailext attachLog: true,
                         subject: 'Unit and Integration Tests status',
                         body: 'The Unit and Integrations Test are a Success!',
-                        to: 'sprayag70@gmail.com'
+                        to: 'krishnprayag.kp@gmail.com'
                         }
                     failure{
                         emailext attachLog: true, 
